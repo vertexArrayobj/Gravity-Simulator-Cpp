@@ -2,39 +2,66 @@
   "version": 8,
   "configurePresets": [
     {
-      "name": "windows64-GCC-Debug",
-      "description": "Using compilers: C = C:\\msys64\\mingw64\\bin\\gcc.exe, CXX = C:\\msys64\\mingw64\\bin\\g++.exe",
+      "name": "linux64-GCC-Debug",
+      "description": "Using GCC for Linux (Debug Build)",
       "binaryDir": "${sourceDir}/build/${presetName}",
-      "generator": "Unix Makefiles",
+      "generator": "Ninja",
       "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
-        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
-        "CMAKE_BUILD_TYPE": "Debug"
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       }
     },
     {
-      "name": "windows64-GCC-Release",
-      "description": "Using compilers: C = C:\\msys64\\mingw64\\bin\\gcc.exe, CXX = C:\\msys64\\mingw64\\bin\\g++.exe",
+      "name": "windows64-GCC-Debug",
+      "description": "Using GCC for Windows (MinGW) (Debug Build)",
       "binaryDir": "${sourceDir}/build/${presetName}",
-      "generator": "Unix Makefiles",
+      "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
         "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
-        "CMAKE_BUILD_TYPE": "Release"
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       }
     },
     {
       "name": "windows64-VS-Debug",
-      "description": "Using compilers: C = C:\\msys64\\mingw64\\bin\\gcc.exe, CXX = C:\\msys64\\mingw64\\bin\\g++.exe",
+      "description": "Using MSVC for Visual Studio 2022 (Debug Build)",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "generator": "Visual Studio 17 2022",
       "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+      }
+    },
+    {
+      "name": "windows64-Clang-Debug",
+      "description": "Using Clang for Windows (Debug Build)",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "C:/Program Files/LLVM/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "C:/Program Files/LLVM/bin/clang++.exe",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "macos64-Clang-Debug",
+      "description": "Using Clang for macOS (Debug Build)",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "/usr/bin/clang",
+        "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       }
     }
   ]
