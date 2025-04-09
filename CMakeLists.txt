@@ -4,7 +4,8 @@ project(GravitySim VERSION 0.1.0 LANGUAGES C CXX)
 
 find_package(GLEW REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
-
+find_package(imgui CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 # Gather all source files
 file(GLOB_RECURSE MY_SOURCES "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
@@ -18,4 +19,6 @@ target_link_libraries(GravitySim PRIVATE
     glfw
     opengl32
     GLEW::GLEW
+    imgui::imgui
+    glm::glm
 )
