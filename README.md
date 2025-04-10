@@ -17,7 +17,7 @@ A C++ physics simulation that models gravitational interactions between celestia
 - CMake 3.15+
 - C++20 compatible compiler
 
-## Installation & Build
+## 🚀 Installation & Build
 
 ### 1. Generate Build Files
 
@@ -55,12 +55,19 @@ make --build build/windows64-VS-Release --config Release
 cmake --build build/windows64-GCC-Debug
 ```
 
-# Contributing
+# 🤝Contributing
 
 Pull requests are welcome. Please open an issue first to discuss proposed changes.
 
-# License
+# 📜License
 
 [LICENSE](./LICENSE.txt)
+#
+
+## ⭐ Star this repo if you find it useful!
+
+"We are all in the gutter, but some of us are looking at the stars." - Oscar Wilde
+
+### 🐛 Report issues in our Issue Tracker
 
 Thank you for using Gravity Simulator! ❤️
