@@ -9,7 +9,6 @@ A C++ physics simulation that models gravitational interactions between celestia
 - N-body gravitational simulation
 - Real-time visualization
 - Configurable physical parameters
-- [Add other key features]
 
 ## Prerequisites
 
