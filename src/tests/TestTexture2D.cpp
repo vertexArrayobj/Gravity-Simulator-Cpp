@@ -3,8 +3,8 @@
 namespace test
 {
 	TestTexture2D::TestTexture2D() : m_translationA(0, 0, 0.0f), m_translationB(200, 0, 0.0f),
-									 m_proj(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f)),
-									 m_view(glm::translate(glm::mat4(1.0f), glm::vec3(-200.0, -200.0, 0.0f))), m_io(ImGui::GetIO())
+									 m_Proj(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f)),
+									 m_View(glm::translate(glm::mat4(1.0f), glm::vec3(-200.0, -200.0, 0.0f))), m_io(ImGui::GetIO())
 	{
 
 		constexpr float positions[] = {
@@ -33,7 +33,7 @@ namespace test
 	}
 	TestTexture2D::~TestTexture2D()
 	{
-		}
+	}
 
 	float r_increment = 0.01f;
 	float r = 0.0f;
@@ -58,12 +58,12 @@ namespace test
 		glm::mat4 mvp;
 
 		model = glm::translate(glm::mat4(1.0f), m_translationA);
-		mvp = m_proj * m_view * model;
+		mvp = m_Proj * m_View * model;
 		m_Shader->SetShaderUniformMat4f("u_MVP", mvp);
 		renderer.Draw(*m_VAO, *m_IB, *m_Shader);
 
 		model = glm::translate(glm::mat4(1.0f), m_translationB);
-		mvp = m_proj * m_view * model;
+		mvp = m_Proj * m_View * model;
 		m_Shader->SetShaderUniformMat4f("u_MVP", mvp);
 		renderer.Draw(*m_VAO, *m_IB, *m_Shader);
 	}

@@ -20,13 +20,15 @@ namespace test
         std::unique_ptr<IndexBuffer> m_IB;
         std::unique_ptr<Shader> m_Shader;
 
-        glm::mat4 m_proj, m_view;
-        glm::vec3 m_translationC;
+        glm::mat4 m_Proj, m_View;
+        glm::vec3 m_TranslationC;
         float m_Color[4];
-        glm::vec3 m_VIEW;
+        glm::vec3 m_VecView;
 
         float m_ScreenWidth;
         float m_ScreenHeight;
+        int m_Resolution;
+        float m_Radius;
 
     public:
         TestCircle2D();
@@ -35,6 +37,7 @@ namespace test
         void OnUpdate(float deltatime) override;
         void OnRender() override;
         void OnImGuiRender() override;
+        void GenerateCircle();
     };
 
 }
