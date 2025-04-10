@@ -23,9 +23,15 @@ in vec2 v_TexCoord;
 
 uniform vec4 u_Color;
 uniform sampler2D u_Texture;
+uniform int u_UseTex=1;
 
 void main()
 {
-	vec4 texColor = texture(u_Texture, v_TexCoord);
-	color = texColor * u_Color;
+	if(u_UseTex == 1){
+		vec4 texColor = texture(u_Texture, v_TexCoord);
+		color = texColor * u_Color;
+	}
+	else {
+		color = u_Color;
+	}
 };

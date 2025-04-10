@@ -6,6 +6,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "imgui.h"
 #include "../Renderer.h"
+#include "../Shader.h"
 #include "../Texture.h"
 
 namespace test

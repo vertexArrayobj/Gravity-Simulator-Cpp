@@ -12,7 +12,7 @@ A C++ physics simulation that models gravitational interactions between celestia
 
 ## Prerequisites
 
-- [vcpkg](https://vcpkg.io) package manager installed and configured [make sure your environment variable VCPKG_ROOT is set]
+- [vcpkg](https://vcpkg.io) package manager installed and configured (**make sure your environment variable VCPKG_ROOT is set**)
 - CMake 3.15+
 - C++20 compatible compiler
 
@@ -54,16 +54,13 @@ make --build build/windows64-VS-Release --config Release
 cmake --build build/windows64-GCC-Debug
 ```
 
-# 🤝Contributing
+## 🤝Contributing
 
 Pull requests are welcome. Please open an issue first to discuss proposed changes.
 
-# 📜License
+## 📜[LICENSE](./LICENSE.txt)
 
-[LICENSE](./LICENSE.txt)
-#
-
-## ⭐ Star this repo if you find it useful!
+## ⭐ Star this repo if you find it useful
 
 "We are all in the gutter, but some of us are looking at the stars." - Oscar Wilde
 

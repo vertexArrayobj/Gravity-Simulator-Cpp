@@ -1,15 +1,13 @@
 #include "GLErrorManager.h"
 #include "Renderer.h"
-#include<iostream>
+#include <iostream>
 
-
-
-void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const
+void Renderer::Draw(const VertexArray &va, const IndexBuffer &ib, const Shader &shader) const
 {
 	va.Bind();
-	ib.Bind();
+	// ib.Bind();
 	shader.Bind();
-	GLCall(glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, nullptr));
+	GLCall(glDrawElements(GL_TRIANGLES, 202, GL_UNSIGNED_INT, nullptr));
 }
 
 void Renderer::SetClearColor(const float v1, const float v2, const float v3, const float v4)

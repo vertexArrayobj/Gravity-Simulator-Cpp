@@ -5,7 +5,7 @@ namespace test
 	class Test
 	{
 	public:
-		Test(){}
+		Test() {}
 		virtual ~Test() {}
 
 		virtual void OnUpdate(float deltatime) {}

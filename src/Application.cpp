@@ -11,6 +11,7 @@
 #include "tests/TestClearColor.h"
 #include "tests/TestMenu.h"
 #include "tests/TestTexture2D.h"
+#include "tests/TestCircle2D.h"
 
 int main(void)
 {
@@ -20,9 +21,9 @@ int main(void)
 	if (!glfwInit())
 		return -1;
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	// glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	//   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/* Create a windowed mode window and its OpenGL context */
 	window = glfwCreateWindow(960, 540, "OpenGL", NULL, NULL);
@@ -41,7 +42,6 @@ int main(void)
 	//// Setup Dear ImGui context
 	ImGui::CreateContext();
 
-	//
 	//// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init();
@@ -71,6 +71,7 @@ int main(void)
 		test::TestMenu *menu = new test::TestMenu(currentTest);
 		menu->RegisterTest<test::TestClearColor>("Clear Color");
 		menu->RegisterTest<test::TestTexture2D>("2D Texture");
+		menu->RegisterTest<test::TestCircle2D>("2D Circle");
 		currentTest = menu;
 
 		/* Loop until the user closes the window */

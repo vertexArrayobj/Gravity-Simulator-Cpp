@@ -19,20 +19,21 @@ namespace test
 			2, 3, 0};
 
 		m_VAO = std::make_unique<VertexArray>();
-		m_VB = std::make_unique<VertexBuffer>(positions, 4 * 4 * sizeof(float));
-		m_IB = std::make_unique<IndexBuffer>(indicies, 6);
 		m_Layout = std::make_unique<VertexBufferLayout>();
-		m_Shader = std::make_unique<Shader>(RESOURCES_PATH "shaders/Basic.shader");
-		m_Texture = std::make_unique<Texture>(RESOURCES_PATH "textures/logo.png");
-
+		m_VB = std::make_unique<VertexBuffer>(positions, 4 * 4 * sizeof(float));
 		m_Layout->Push<float>(2);
 		m_Layout->Push<float>(2);
 		m_VAO->AddBuffer(*m_VB, *m_Layout);
+
+		m_IB = std::make_unique<IndexBuffer>(indicies, 6);
+		m_Shader = std::make_unique<Shader>(RESOURCES_PATH "shaders/Basic.shader");
+		m_Texture = std::make_unique<Texture>(RESOURCES_PATH "textures/logo.png");
+
 		m_Shader->SetShaderUniform1i("u_Texture", 0);
 	}
 	TestTexture2D::~TestTexture2D()
 	{
-	}
+		}
 
 	float r_increment = 0.01f;
 	float r = 0.0f;
