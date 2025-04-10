@@ -8,6 +8,7 @@
 #include "../Shader.h"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "objects/objCircle.h"
 
 namespace test
 {
@@ -19,7 +20,6 @@ namespace test
         std::unique_ptr<VertexBuffer> m_VB;
         std::unique_ptr<IndexBuffer> m_IB;
         std::unique_ptr<Shader> m_Shader;
-
         glm::mat4 m_Proj, m_View;
         glm::vec3 m_TranslationC;
         float m_Color[4];
@@ -29,6 +29,8 @@ namespace test
         float m_ScreenHeight;
         int m_Resolution;
         float m_Radius;
+        std::unique_ptr<objCircle> m_Circle;
+        std::unique_ptr<objCircle> m_Circle2;
 
     public:
         TestCircle2D();
@@ -37,7 +39,7 @@ namespace test
         void OnUpdate(float deltatime) override;
         void OnRender() override;
         void OnImGuiRender() override;
-        void GenerateCircle();
+        void GenerateCircle(float centerX, float centerY, float radius, int res);
     };
 
 }
