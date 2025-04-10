@@ -1,24 +1,66 @@
 # Gravity Simulator C++
 
-# Build Instruction
-`Requrements:` Have a package manager: vcpkg installed and configured 
-## Use Cmake to generate build files 
-### MSVC
-- Open terminal in the project root directory
-- use command `cmake --preset windows64-VS-Debug`
+A C++ physics simulation that models gravitational interactions between celestial bodies.
 
-### Unix Makefiles
-- Open terminal in the project root directory
-- use command `cmake --preset windows64-GCC-Debug`
+![Project Screenshot](./screenshots/screenshot.png) <!-- Add a screenshot if available -->
 
-## Build
-### MSVC
-- `cd ./build/windows64-VS-Debug/`
-- `msbuild GravitySim.sln`
+## Features
 
-### Makefiles
-- `cd ./build/windows64-GCC-Debug/`
-- `make`
+- N-body gravitational simulation
+- Real-time visualization
+- Configurable physical parameters
+- [Add other key features]
 
+## Prerequisites
 
-Thank you for trying out this project ❤️
+- [vcpkg](https://vcpkg.io) package manager installed and configured [make sure your environment variable VCPKG_ROOT is set]
+- CMake 3.15+
+- C++20 compatible compiler
+
+## Installation & Build
+
+### 1. Generate Build Files
+
+#### For Visual Studio (MSVC)
+
+```bash
+# Debug configuration
+cmake --preset windows64-VS-Debug
+
+# Release configuration
+cmake --preset windows64-VS-Release
+```
+
+#### For GCC/Ninja
+
+```bash
+cmake --preset windows64-GCC-Debug
+```
+
+### 2. Compile the Project
+
+#### MSVC Builds
+
+```bash
+# Debug build
+cmake --build build/windows64-VS-Debug
+
+# Release build
+make --build build/windows64-VS-Release --config Release
+```
+
+#### GCC/Ninja Builds
+
+```bash
+cmake --build build/windows64-GCC-Debug
+```
+
+# Contributing
+
+Pull requests are welcome. Please open an issue first to discuss proposed changes.
+
+# License
+
+[LICENSE](./LICENSE.txt)
+
+Thank you for using Gravity Simulator! ❤️
