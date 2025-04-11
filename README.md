@@ -11,48 +11,31 @@ A C++ physics simulation that models gravitational interactions between celestia
 - Configurable physical parameters
 
 ## Prerequisites
-
-- [vcpkg](https://vcpkg.io) package manager installed and configured (**make sure your environment variable VCPKG_ROOT is set**)
 - CMake 3.15+
 - C++20 compatible compiler
 
 ## 🚀 Installation & Build
 
-### 1. Generate Build Files
+At first, run the setup.bat file. Note: You only need to do this once. 
+After that you can continue:
 
-#### For Visual Studio (MSVC)
+### For Visual Studio (MSVC)
 
 ```bash
 # Debug configuration
-cmake --preset windows64-VS-Debug
+cmake --preset windows64-VS-Debug && cmake --build build/windows64-VS-Debug
 
 # Release configuration
-cmake --preset windows64-VS-Release
+cmake --preset windows64-VS-Release && cmake --build build/windows64-VS-Release
 ```
 
-#### For GCC/Ninja
+### For GCC/Ninja
 
 ```bash
-cmake --preset windows64-GCC-Debug
+cmake --preset windows64-GCC-Debug && cmake --build build/windows64-GCC-Debug
 ```
 
-### 2. Compile the Project
 
-#### MSVC Builds
-
-```bash
-# Debug build
-cmake --build build/windows64-VS-Debug
-
-# Release build
-make --build build/windows64-VS-Release --config Release
-```
-
-#### GCC/Ninja Builds
-
-```bash
-cmake --build build/windows64-GCC-Debug
-```
 
 ## 🤝Contributing
 
@@ -64,6 +47,6 @@ Pull requests are welcome. Please open an issue first to discuss proposed change
 
 "We are all in the gutter, but some of us are looking at the stars." - Oscar Wilde
 
-### 🐛 Report issues in our Issue Tracker
+## 🐛 Report issues in our Issue Tracker
 
 Thank you for using Gravity Simulator! ❤️
