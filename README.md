@@ -16,7 +16,12 @@ A C++ physics simulation that models gravitational interactions between celestia
 
 ## 🚀 Installation & Build
 
-At first, run the setup.bat file. Note: You only need to do this once. 
+```py
+# Run the batch file
+setup.bat
+```
+[ Note: You only need to do this once ]
+
 After that you can continue:
 
 ### For Visual Studio (MSVC)
