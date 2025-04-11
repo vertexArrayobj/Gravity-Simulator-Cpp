@@ -9,7 +9,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "objects/objCircle.h"
-
+#include <array>
 namespace test
 {
     class TestCircle2D : public Test
@@ -22,8 +22,8 @@ namespace test
         std::unique_ptr<Shader> m_Shader;
         glm::mat4 m_Proj, m_View;
         glm::vec3 m_TranslationC;
-        float m_Color[4];
         glm::vec3 m_VecView;
+        std::array<float, 4> m_Color;
 
         float m_ScreenWidth;
         float m_ScreenHeight;

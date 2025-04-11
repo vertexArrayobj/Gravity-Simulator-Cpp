@@ -9,7 +9,7 @@ namespace test
 {
 
     TestCircle2D::TestCircle2D()
-        : m_ScreenWidth(960.0f), m_ScreenHeight(540.0f), m_Color(1.0f, 1.0f, 1.0f, 1.0f),
+        : m_ScreenWidth(960.0f), m_ScreenHeight(540.0f), m_Color{1.0f, 1.0f, 1.0f, 1.0f},
           m_Resolution(50), m_Radius(50.0f)
     {
         m_VecView = glm::vec3(0.0f, 0.0f, 0.0f);
