@@ -8,7 +8,7 @@
 #include "../Shader.h"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
-#include "objects/objCircle.h"
+#include "objects/OCircle.h"
 #include <array>
 namespace test
 {
@@ -29,8 +29,8 @@ namespace test
         float m_ScreenHeight;
         int m_Resolution;
         float m_Radius;
-        std::unique_ptr<objCircle> m_Circle;
-        std::unique_ptr<objCircle> m_Circle2;
+        std::unique_ptr<OCircle> m_Circle;
+        std::unique_ptr<OCircle> m_Circle2;
 
     public:
         TestCircle2D();

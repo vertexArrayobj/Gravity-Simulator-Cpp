@@ -3,7 +3,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/constants.hpp> // For glm::pi
 #include <cmath>
-#include "objects/objCircle.h"
+#include "objects/OCircle.h"
 
 namespace test
 {
@@ -15,8 +15,8 @@ namespace test
         m_VecView = glm::vec3(0.0f, 0.0f, 0.0f);
         m_Proj = glm::ortho(0.0f, m_ScreenWidth, 0.0f, m_ScreenHeight, -1.0f, 1.0f);
 
-        m_Circle = std::make_unique<objCircle>(m_ScreenWidth / 2.0f, m_ScreenHeight / 2.0f, 50.0f, 100);
-        m_Circle2 = std::make_unique<objCircle>(m_ScreenWidth / 1.5f, m_ScreenHeight / 2.0f, 50.0f, 4);
+        m_Circle = std::make_unique<OCircle>(m_ScreenWidth / 2.0f, m_ScreenHeight / 2.0f, 50.0f, 100);
+        m_Circle2 = std::make_unique<OCircle>(m_ScreenWidth / 1.5f, m_ScreenHeight / 2.0f, 50.0f, 4);
     }
     void TestCircle2D::OnUpdate(float deltatime)
     {

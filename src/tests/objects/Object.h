@@ -7,7 +7,7 @@
 #include "../../Texture.h"
 #include "../../Shader.h"
 
-class obj
+class Object
 {
 private:
     std::unique_ptr<VertexArray> m_VAO;
@@ -18,9 +18,9 @@ private:
 
 public:
     void Initialize();
-    void Render(glm::mat4 projMat4, glm::mat4 viewjMat4);
+    void Render(glm::mat4 projMat4, glm::mat4 viewMat4);
 
-    glm::vec3 position;
-    std::vector<float> vertexPos;
-    std::vector<unsigned int> indices;
+    glm::vec3 m_Position;
+    std::vector<float> m_VertexPositions;
+    std::vector<unsigned int> m_Indices;
 };
