@@ -1,6 +1,7 @@
 #include "Object.h"
 #include "../../Renderer.h"
 #include "glm/gtc/matrix_transform.hpp"
+#include <iostream>
 
 void Object::Initialize()
 {
@@ -14,19 +15,28 @@ void Object::Initialize()
     m_Shader = std::make_unique<Shader>(RESOURCES_PATH "shaders/Basic.shader");
     m_Shader->Bind();
     m_Shader->SetShaderUniform1i("u_UseTex", 0);
+
+    std::cout << "Object initialized" << std::endl;
 }
 
-void Object::Render(glm::mat4 projMat4, glm::mat4 viewMat4)
+void Object::Render(const glm::mat4 &projMat4, const glm::mat4 &viewMat4)
 {
     Renderer renderer;
     m_VAO->Bind();
     m_Shader->Bind();
 
-    m_Shader->SetShaderUniform4f("u_Color", 1.0f, 1.0f, 1.0f, 1.0f);
-    m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
+    m_Shader->SetShaderUniform4f("u_Color", m_Color[0], m_Color[1], m_Color[2], m_Color[3]);
     glm::mat4 model = glm::translate(glm::mat4(1.0f), m_Position);
     glm::mat4 mvp = projMat4 * viewMat4 * model;
 
     m_Shader->SetShaderUniformMat4f("u_MVP", mvp);
     renderer.Draw(*m_VAO, *m_IB, *m_Shader);
+}
+Object::Object()
+{
+    m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
+    m_VertexPositions.clear();
+    m_Indices.clear();
+    m_Shader = std::make_unique<Shader>(RESOURCES_PATH "shaders/Basic.shader");
+    m_Color = {1.0f, 1.0f, 1.0f, 1.0f};
 }

@@ -6,6 +6,7 @@
 #include "../../Renderer.h"
 #include "../../Texture.h"
 #include "../../Shader.h"
+#include <array>
 
 class Object
 {
@@ -14,11 +15,14 @@ private:
     std::unique_ptr<VertexBufferLayout> m_Layout;
     std::unique_ptr<VertexBuffer> m_VB;
     std::unique_ptr<IndexBuffer> m_IB;
-    std::unique_ptr<Shader> m_Shader;
 
 public:
+    Object();
+    virtual ~Object() {};
     void Initialize();
-    void Render(glm::mat4 projMat4, glm::mat4 viewMat4);
+    void Render(const glm::mat4 &projMat4, const glm::mat4 &viewMat4);
+    std::array<float, 4> m_Color;
+    std::unique_ptr<Shader> m_Shader;
 
     glm::vec3 m_Position;
     std::vector<float> m_VertexPositions;
