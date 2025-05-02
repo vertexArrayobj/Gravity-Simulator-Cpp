@@ -26,9 +26,15 @@ endif()
     
 target_include_directories(${PROJECT_NAME} PRIVATE ${Stb_INCLUDE_DIR})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE 
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE opengl32)
+elseif(UNIX)
+    target_link_libraries(${PROJECT_NAME} PRIVATE GL)
+endif()
+
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
     glfw
-    opengl32
     GLEW::GLEW
     imgui::imgui
     glm::glm
