@@ -2,85 +2,83 @@
   "version": 8,
   "configurePresets": [
     {
-      "name": "base",
-      "description": "Base configuration for the project",
+      "name": "linux-gcc-debug",
+      "description": "Linux | GCC | Debug",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/${presetName}",
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
-      }
-    },
-    {
-      "name": "default",
-      "inherits": "base",
-      "description": "Default configuration for the project",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-    {
-      "name": "linux64-GCC-Debug",
-      "inherits": "base",
-      "description": "Using GCC for Linux (Debug Build)",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "gcc",
-        "CMAKE_CXX_COMPILER": "g++",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}"
-      }
-    },
-    {
-      "name": "windows64-GCC-Debug",
-      "inherits": "base",
-      "description": "Using GCC for Windows (MinGW) (Debug Build)",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++",
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
-        "VCPKG_TARGET_TRIPLET": "x64-mingw-static"
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_HOST_TRIPLET": "x64-linux"
       }
     },
     {
-      "name": "windows64-VS-Debug",
-      "inherits": "base",
-      "description": "Using MSVC for Visual Studio 2022 (Debug Build)",
-      "generator": "Visual Studio 17 2022",
+      "name": "macos-clang-debug",
+      "description": "macOS | Clang | Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_HOST_TRIPLET": "x64-osx"
+      }
+    },
+    {
+      "name": "windows-gcc-debug",
+      "description": "Windows | MinGW (GCC) | Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+        "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+      }
+    },
+    {
+      "name": "windows-clang-debug",
+      "description": "Windows | Clang | Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+        "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+      }
+    },
+    {
+      "name": "windows-msvc-debug",
+      "description": "Windows | MSVC | Debug (Visual Studio 2022)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static"
       }
     },
     {
-      "name": "windows64-VS-Release",
-      "inherits": "base",
-      "description": "Using MSVC for Visual Studio 2022 (Release Build)",
+      "name": "windows-msvc-release",
+      "description": "Windows | MSVC | Release (Visual Studio 2022)",
       "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static"
-      }
-    },
-    {
-      "name": "windows64-Clang-Debug",
-      "inherits": "base",
-      "description": "Using Clang for Windows (Debug Build)",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "clang",
-        "CMAKE_CXX_COMPILER": "clang++",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}"
-      }
-    },
-    {
-      "name": "macos64-Clang-Debug",
-      "inherits": "base",
-      "description": "Using Clang for macOS (Debug Build)",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "clang",
-        "CMAKE_CXX_COMPILER": "clang++",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}"
       }
     }
   ]
