@@ -25,6 +25,19 @@ namespace test
     {
         m_Circle->m_Position += velocity * speed;
         velocity.y += gravity;
+
+        // Bounce off the walls
+        if (m_Circle->m_Position.x < 0.0f || m_Circle->m_Position.x > m_ScreenWidth)
+        {
+            velocity.x = -velocity.x;
+        }
+        if (m_Circle->m_Position.y < 0.0f || m_Circle->m_Position.y > m_ScreenHeight)
+        {
+            velocity.y = -velocity.y;
+        }
+        // Clamp the position to the screen bounds
+        m_Circle->m_Position.x = std::fmax(0.0f, std::fmin(m_Circle->m_Position.x, m_ScreenWidth));
+        m_Circle->m_Position.y = std::fmax(0.0f, std::fmin(m_Circle->m_Position.y, m_ScreenHeight));
     }
     TestCircle2D::~TestCircle2D()
     {

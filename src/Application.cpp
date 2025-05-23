@@ -9,7 +9,7 @@
 #include "tests/TestMenu.h"
 #include "tests/TestTexture2D.h"
 #include "tests/TestCircle2D.h"
-
+ 
 int main()
 {
 	if (!glfwInit())
@@ -29,9 +29,10 @@ int main()
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init();
 	ImGui::StyleColorsDark();
-
+	
 	if (glewInit() != GLEW_OK)
 		std::cout << "ERROR" << std::endl;
+		
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
 	GLCall(glEnable(GL_BLEND));
